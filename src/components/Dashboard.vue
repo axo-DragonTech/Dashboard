@@ -1,9 +1,10 @@
 <template>
-  <div>
     <div class="bg-[#020225]">
+      <!-- Seção Faturamento ao longo do tempo -->
       <div>
         <h1>Faturamento ao longo do tempo</h1>
       </div>
+      <!-- Seção Pedidos -->
       <div class="mt-12 text-white bg-[#02264B] rounded-lg w-3/4 p-4 shadow-lg font-semibold">
         <div class="flex justify-between items-center mb-4">
           <h2 class="font-semibold font-segoe text-2xl">Pedidos</h2>
@@ -91,7 +92,6 @@
         </table>
       </div>
     </div>
-  </div>
 </template>
   
 <script>  
