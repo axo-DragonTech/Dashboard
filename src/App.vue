@@ -1,13 +1,13 @@
 <template>
 
   <div id="app">
-    <nav v-if="isLogin">
+    <nav v-if="isLogin" class="text-xs sm:text-base font-bold flex  justify-around items-center py-4 border-b-8 border-[#010859]">
       <router-link to="/dashboard">Dashboard</router-link>
       <router-link to="/contrato">Cadastro de Contrato</router-link>
       <router-link to="/servico">Cadastro de Serviço</router-link>
-      <button @click="logout">sair</button>
+      <button @click="logout">Sair</button>
     </nav>
-    <router-view  />
+    <router-view />
   </div>
 </template>
 
@@ -15,15 +15,16 @@
 export default {
   name: 'App',
   methods: {
-    logout(){
+    logout() {
       localStorage.removeItem('isAuthenticated');
       this.$router.push({ path: '/' });
+      window.location.reload();
     },
   },
   computed: {
     isLogin() {
-      return !!localStorage.getItem('token');
-      }
+      return localStorage.getItem('isAuthenticated') == 'true'; 
+    }
   },
 };
 </script>
@@ -36,5 +37,12 @@ nav {
 nav a {
   color: white;
   margin-right: 15px;
+  text-decoration: none;
+}
+button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 </style>
