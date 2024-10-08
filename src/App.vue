@@ -1,15 +1,29 @@
 <template>
   <div id="app">
-    <Dashboard />
+    <CadastroContrato />
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <CadastroServico  />
+    <Dashboard/>
   </div>
 </template>
 
 <script>
-import Dashboard from './components/Dashboard.vue'
+import CadastroContrato from './components/CadastroContrato.vue';
+import CadastroServico from './components/CadastroServico.vue';
+import Dashboard from './components/Dashboard.vue';
 
 export default {
   name: 'App',
   components: {
+    CadastroContrato, 
+    CadastroServico,
     Dashboard
   }
 }
