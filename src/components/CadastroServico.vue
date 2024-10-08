@@ -1,15 +1,15 @@
 <template>
-  <div class="bg-[#020225] w-full h-screen flex items-center justify-center">
-    <div class="bg-white rounded-lg px-12 pb-12">
-      <h1 class="text-2xl mt-6 font-bold mb-4">Cadastro de Tipos de Serviço</h1>
-      <form @submit.prevent="submitService">
-        <div class="mb-4">
-          <label class="block text-gray-700">Nome do Serviço</label>
-          <input type="text" v-model="serviceName" required class="input" />
+  <div class="bg-[#020225] flex items-center justify-center h-screen">
+    <div class="bg-white rounded-lg px-8 pb-12 w-11/12">
+      <h1 class="text-4 mt-6 font-bold mb-4 text-center">Cadastro de Tipos de Serviço</h1>
+      <form @submit.prevent="submitService" class="flex flex-col items-center">
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center text-sm">Nome do Serviço</label>
+          <input type="text" v-model="serviceName" required class="w-80 p-2 border border-gray-300 rounded" />
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700">Área de Atuação</label>
-          <select v-model="serviceArea" required class="input">
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center text-sm">Área de Atuação</label>
+          <select v-model="serviceArea" required class="w-80 p-2 border border-gray-300 rounded">
             <option value="" disabled>Selecione uma área</option>
             <option value="Imobiliária">Imobiliária</option>
             <option value="Empresarial">Empresarial</option>
@@ -19,14 +19,14 @@
             <option value="Família">Família</option>
           </select>
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700">Valor Estimado</label>
-          <input type="number" v-model="serviceValue" required class="input" />
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center">Valor Estimado</label>
+          <input type="number" v-model="serviceValue" required class="w-80 p-2 border border-gray-300 rounded" />
         </div>
-        <button type="submit" class="btn">{{ isEditing ? 'Atualizar Serviço' : 'Cadastrar Serviço' }}</button>
+        <button type="submit" class="bg-green-500 text-white p-2 px-4 border-none rounded cursor-pointer mr-1.5 hover:bg-[#45a049]">{{ isEditing ? 'Atualizar Serviço' : 'Cadastrar Serviço' }}</button>
       </form>
 
-      <h2 class="text-xl font-bold mt-8">Serviços Cadastrados</h2>
+      <!-- <h2 class="text-xl font-bold mt-8">Serviços Cadastrados</h2>
       <table class="min-w-full bg-white border border-gray-300">
         <thead>
           <tr>
@@ -47,7 +47,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </template>
@@ -111,12 +111,6 @@ export default {
 </script>
 
 <style scoped>
-.input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 
 .btn {
   background-color: #4CAF50;
