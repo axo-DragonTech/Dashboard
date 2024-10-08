@@ -1,15 +1,15 @@
 <template>
   <div class="bg-[#020225] flex items-center justify-center h-screen">
-    <div class="bg-white rounded-lg px-8 pb-12 w-11/12">
-      <h1 class="text-4 mt-6 font-bold mb-4 text-center">Cadastro de Tipos de Serviço</h1>
+    <div class="bg-white rounded-lg px-8 pb-12 w-4/6 sm:w-2/4">
+      <h1 class="text-4 mt-6 font-bold mb-4 text-center md:text-xl lg:text-2xl lg:pb-4">Cadastro de Tipos de Serviço</h1>
       <form @submit.prevent="submitService" class="flex flex-col items-center">
-        <div class="mb-4 flex flex-col items-center">
-          <label class="block text-gray-700 text-center text-sm">Nome do Serviço</label>
-          <input type="text" v-model="serviceName" required class="w-80 p-2 border border-gray-300 rounded" />
+        <div class="mb-4 flex flex-col items-center lg:pb-4">
+          <label class="block text-gray-700 text-center text-sm md:text-base lg:text-xl">Nome do Serviço</label>
+          <input type="text" v-model="serviceName" required class="w-[60vw] p-2 border border-gray-300 rounded sm:w-64 md:w-[40vw]" />
         </div>
-        <div class="mb-4 flex flex-col items-center">
-          <label class="block text-gray-700 text-center text-sm">Área de Atuação</label>
-          <select v-model="serviceArea" required class="w-80 p-2 border border-gray-300 rounded">
+        <div class="mb-4 flex flex-col items-center lg:pb-4">
+          <label class="block text-gray-700 text-center text-sm md:text-base lg:text-xl">Área de Atuação</label>
+          <select v-model="serviceArea" required class="w-[60vw] p-2 border border-gray-300 rounded text-sm sm:w-64 md:text-base md:w-[40vw] lg:text-xl">
             <option value="" disabled>Selecione uma área</option>
             <option value="Imobiliária">Imobiliária</option>
             <option value="Empresarial">Empresarial</option>
@@ -19,11 +19,11 @@
             <option value="Família">Família</option>
           </select>
         </div>
-        <div class="mb-4 flex flex-col items-center">
-          <label class="block text-gray-700 text-center">Valor Estimado</label>
-          <input type="number" v-model="serviceValue" required class="w-80 p-2 border border-gray-300 rounded" />
+        <div class="mb-4 flex flex-col items-center lg:pb-4">
+          <label class="block text-gray-700 text-center md:text-base lg:text-xl">Valor Estimado</label>
+          <input type="number" v-model="serviceValue" required class="w-[60vw] p-2 border border-gray-300 rounded sm:w-64 md:w-[40vw]" />
         </div>
-        <button type="submit" class="bg-green-500 text-white p-2 px-4 border-none rounded cursor-pointer mr-1.5 hover:bg-[#45a049]">{{ isEditing ? 'Atualizar Serviço' : 'Cadastrar Serviço' }}</button>
+        <button type="submit" class="bg-green-500 text-white p-2 px-4 border-none rounded cursor-pointer mr-1.5 hover:bg-[#45a049] lg:text-xl">{{ isEditing ? 'Atualizar Serviço' : 'Cadastrar Serviço' }}</button>
       </form>
 
       <!-- <h2 class="text-xl font-bold mt-8">Serviços Cadastrados</h2>
@@ -112,17 +112,4 @@ export default {
 
 <style scoped>
 
-.btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 6px;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
 </style>
