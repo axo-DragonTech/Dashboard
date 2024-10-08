@@ -1,5 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import './assets/tailwind.css'; 
+import { createApp } from 'vue';
+import App from './App.vue';
+import './assets/tailwind.css'
+import router from './routes/routes';
 
-createApp(App).mount('#app')
+
+// Criando a instância do Vue
+createApp(App)
+  .use(router)
+  .mount('#app');
