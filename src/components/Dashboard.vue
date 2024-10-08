@@ -44,6 +44,10 @@
         </tbody>
       </table>
     </div>
+    <!-- Gráfico de Distribuição de Necessidade de Advogados em São Paulo -->
+    <div class="mt-12">
+      <canvas ref="lawyerChart" class="bg-[#02264B]"></canvas>
+    </div>
   </div>
 </template>
 
