@@ -1,6 +1,7 @@
 <template>
-    <div class="container mx-auto">
-      <h1 class="text-2xl font-bold mb-4">Cadastro de Contratos</h1>
+  <div class="bg-[#020225] w-full h-screen flex items-center justify-center">
+    <div class="bg-white rounded-lg px-6">
+      <h1 class="text-2xl mt-6 font-bold mb-4">Cadastro de Contratos</h1>
       <form @submit.prevent="submitContract">
         <div class="mb-4">
           <label class="block text-gray-700">Nome do Cliente</label>
@@ -55,6 +56,7 @@
         </tbody>
       </table>
     </div>
+  </div>
 </template>
   
 <script>
