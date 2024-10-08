@@ -1,11 +1,13 @@
 <template>
+
   <div id="app">
-    <nav>
+    <nav v-if="isLogin">
       <router-link to="/">Dashboard</router-link>
       <router-link to="/contrato">Cadastro de Contrato</router-link>
-      <router-link to="/servico">Cadastro de Área de atuação</router-link>
+      <router-link to="/servico">Cadastro de Serviço</router-link>
+      <button @click="logout">sair</button>
     </nav>
-    <router-view @add-contract="addContract" />
+    <router-view  />
   </div>
 </template>
 
@@ -13,11 +15,16 @@
 export default {
   name: 'App',
   methods: {
-    addContract(contract) {
-      // Emitindo o evento para o dashboard
+    logout(){
+      localStorage.removeItem('token')
       this.$router.push({ path: '/' });
-      this.$emit('add-contract', contract);
+      this.isAuthenticated = false
     },
+  },
+  computed: {
+    isLogin() {
+      return !!localStorage.getItem('token');
+      }
   },
 };
 </script>
@@ -32,3 +39,22 @@ nav a {
   margin-right: 15px;
 }
 </style>
+
+  <LoginDashboard/>
+</template>
+
+<script>
+import LoginDashboard from './components/Login.vue';
+
+export default {
+  name: 'App',
+  components: {
+    LoginDashboard
+  }
+}
+</script>
+
+<style>
+
+</style>
+
