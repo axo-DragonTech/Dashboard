@@ -3,7 +3,7 @@
     <nav>
       <router-link to="/">Dashboard</router-link>
       <router-link to="/contrato">Cadastro de Contrato</router-link>
-      <router-link to="/servico">Cadastro de Serviço</router-link>
+      <router-link to="/servico">Cadastro de Área de atuação</router-link>
     </nav>
     <router-view @add-contract="addContract" />
   </div>
