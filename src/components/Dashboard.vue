@@ -78,6 +78,10 @@
         </tbody>
       </table>
     </div>
+    <!-- Gráfico de Distribuição de Necessidade de Advogados em São Paulo -->
+    <div class="mt-12">
+      <canvas ref="lawyerChart" class="bg-[#02264B]"></canvas>
+    </div>
   </div>
 </template>
 
@@ -90,6 +94,7 @@ export default {
   name: 'DashboardPage',
   mounted() {
     this.renderRevenueChart();
+    this.renderLawyerChart();
   },
   methods: {
     renderRevenueChart() {
@@ -143,7 +148,54 @@ export default {
           }
         }
       });
+    },
+    renderLawyerChart() {
+  const ctx = this.$refs.lawyerChart.getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['18-24', '25-34', '35-44', '45-54', '55-64', 'Acima de 64'],
+      datasets: [{
+        label: 'Distribuição de Necessidade de Advogados',
+        data: [7, 15, 25, 30, 15, 8], // Dados ajustados
+        backgroundColor: ['#0066FF', '#0099FF', '#33CCFF', '#6699CC', '#3366FF', '#6600FF'],
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            color: '#ffffff'
+          }
+        },
+        title: {
+          display: true,
+          text: 'Distribuição de Necessidade de Advogados em São Paulo',
+          color: '#ffffff',
+          font: {
+            size: 18,
+          }
+        },
+        // Tooltip para exibir valores em porcentagem
+        tooltip: {
+          callbacks: {
+            label: function(tooltipItem) {
+              const data = tooltipItem.dataset.data;
+              const total = data.reduce((a, b) => a + b, 0);
+              const value = data[tooltipItem.dataIndex];
+              const percentage = ((value / total) * 100).toFixed(2); // Calcula a porcentagem
+              return `${tooltipItem.label}: ${percentage}%`;
+            }
+          }
+        }
+      }
     }
+  });
+}
+
   }
 };
 </script>
