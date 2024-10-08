@@ -1,4 +1,5 @@
 <template>
+
   <div id="app">
     <nav v-if="isLogin">
       <router-link to="/">Dashboard</router-link>
@@ -38,3 +39,22 @@ nav a {
   margin-right: 15px;
 }
 </style>
+
+  <LoginDashboard/>
+</template>
+
+<script>
+import LoginDashboard from './components/Login.vue';
+
+export default {
+  name: 'App',
+  components: {
+    LoginDashboard
+  }
+}
+</script>
+
+<style>
+
+</style>
+
