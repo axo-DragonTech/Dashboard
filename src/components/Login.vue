@@ -73,9 +73,11 @@ export default {
       const isValidSenha = validaSenha();
       
       if (isValidEmail && isValidSenha) {
-        window.location.href = '../index.html';
+        localStorage.setItem('isAuthenticated', 'true');
+        window.location.href = '/dashboard';
       }
     };
+
 
     return {
       email,
