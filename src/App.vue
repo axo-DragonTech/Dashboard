@@ -1,7 +1,7 @@
 <template>
 
   <div id="app">
-    <nav v-if="isLogin" class="text-xs sm:text-base font-bold flex  justify-around items-center py-4 border-b-8 border-[#010859]">
+    <nav v-if="isLogin" class="text-xs sm:text-base font-bold flex  justify-around items-center py-4 border-[#010859]">
       <router-link to="/dashboard">Dashboard</router-link>
       <router-link to="/contrato">Cadastro de Contrato</router-link>
       <router-link to="/servico">Cadastro de Serviço</router-link>
