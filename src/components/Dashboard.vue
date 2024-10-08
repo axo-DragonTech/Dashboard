@@ -30,24 +30,24 @@
     </div>
     <div class="lg:flex-row flex flex-col lg:justify-center lg:gap-20 items-center w-full">
       <!-- Seção Pedidos -->
-      <div class="text-white bg-[#02264B] rounded-lg w-2/4 p-4 shadow-lg font-semibold hidden lg:block">
+      <div class="text-white bg-[#02264B] rounded-lg mt-12 w-11/12 md:w-3/4 lg:w-2/4 p-4 shadow-lg lg:m-0 font-semibold">
         <div class="flex justify-between items-center mb-4">
           <h2 class="font-semibold font-segoe text-2xl">Pedidos</h2>
         </div>
         <table class="min-w-full text-left text-sm">
           <thead>
-            <tr class="text-gray-400 text-xl">
-              <th class="p-2">Pedido</th>
-              <th class="p-2 px-4">Cliente</th>
-              <th class="p-2 px-4">Área</th>
-              <th class="px-4 py-2">Data Início</th>
+            <tr class="text-gray-400 md:text-xl">
+              <th class="md:p-2">Pedido</th>
+              <th class="md:p-2 px-4">Cliente</th>
+              <th class="md:p-2 px-4">Área</th>
+              <th class="pl-4 md:px-4 py-2">Data Início</th>
             </tr>
           </thead>
-          <tbody class="bg-[#02264B] text-lg">
+          <tbody class="bg-[#02264B] text-sm md:text-lg">
             <tr v-for="contrato in contratos" :key="contrato.id" :class="[contrato.id % 2 === 0 ? 'bg-[#02264B] text-white hover:bg-[#1d3e63]' : 'bg-white text-black hover:bg-[#cbcbcb]']">
-              <td class="px-6 py-3">#{{ contrato.id }}</td>
+              <td class="md:px-6 py-3">#{{ contrato.id }}</td>
               <td class="px-4 py-3">{{ contrato.cliente }}</td>
-              <td class="px-3 py-3">{{ contrato.area }}</td>
+              <td class="md:px-3 py-3">{{ contrato.area }}</td>
               <td class="px-4 py-3">{{ formatarData(contrato.dataInicio) }}</td>
             </tr>
           </tbody>
