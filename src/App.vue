@@ -2,7 +2,7 @@
 
   <div id="app">
     <nav v-if="isLogin">
-      <router-link to="/">Dashboard</router-link>
+      <router-link to="/dashboard">Dashboard</router-link>
       <router-link to="/contrato">Cadastro de Contrato</router-link>
       <router-link to="/servico">Cadastro de Serviço</router-link>
       <button @click="logout">sair</button>
@@ -16,9 +16,8 @@ export default {
   name: 'App',
   methods: {
     logout(){
-      localStorage.removeItem('token')
+      localStorage.removeItem('isAuthenticated');
       this.$router.push({ path: '/' });
-      this.isAuthenticated = false
     },
   },
   computed: {

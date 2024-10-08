@@ -39,23 +39,17 @@ const router = createRouter({
   routes
 });
 
-
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = !!localStorage.getItem('token');
-  console.log("Verificando autenticação. Token presente:", isAuthenticated);
-
+  const isAuthenticated = !!localStorage.getItem('isAuthenticated');
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!isAuthenticated) {
-      console.log("Usuário não autenticado. Redirecionando para login.");
       next({ name: 'Login' });
     } else {
-      console.log("Usuário autenticado. Permitindo acesso.");
       next();
     }
   } else {
     if (to.name === 'Login' && isAuthenticated) {
-      console.log("Usuário autenticado tentando acessar login. Redirecionando para Dashboard.");
       next({ name: 'dashboard' });
     } else {
       next(); 
