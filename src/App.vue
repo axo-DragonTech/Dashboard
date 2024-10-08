@@ -39,19 +39,3 @@ nav a {
   margin-right: 15px;
 }
 </style>
-
-<script>
-import LoginDashboard from './components/Login.vue';
-
-export default {
-  name: 'App',
-  components: {
-    LoginDashboard
-  }
-}
-</script>
-
-<style>
-
-</style>
-
