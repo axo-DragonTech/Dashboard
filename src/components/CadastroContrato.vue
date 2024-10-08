@@ -1,60 +1,61 @@
 <template>
   <div class="bg-[#020225] w-full h-screen flex items-center justify-center">
-    <div class="bg-white rounded-lg px-6">
-      <h1 class="text-2xl mt-6 font-bold mb-4">Cadastro de Contratos</h1>
-      <form @submit.prevent="submitContract">
-        <div class="mb-4">
-          <label class="block text-gray-700">Nome do Cliente</label>
-          <input type="text" v-model="clientName" required class="input" />
+    <div class="bg-white rounded-lg px-8 pb-8 sm:pb-12 w-4/6 sm:w-5/6 md:w-3/5">
+      <h1 class="text-lg mt-6 font-bold mb-4 text-center sm:text-2xl md:text-3xl">Cadastro de Contratos</h1>
+      <form @submit.prevent="submitContract" class="flex flex-col items-center">
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center text-sm sm:text-xl pb-2">Nome do Cliente</label>
+          <input type="text" v-model="clientName" required class="w-[60vw] p-2 pb-1 border border-gray-300 rounded sm:w-[50vw]" />
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700">Área de atuação</label>
-          <select v-model="selectedService" required class="input">
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center text-sm sm:text-xl pb-2">Área de atuação</label>
+          <select v-model="selectedService" required class="w-[60vw] p-2 pb-1 border border-gray-300 rounded sm:w-[50vw]">
             <option value="" disabled>Selecione um serviço</option>
             <option v-for="service in services" :key="service" :value="service">{{ service }}</option>
           </select>
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700">Valor do Contrato</label>
-          <input type="number" v-model="contractValue" required class="input" />
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center text-sm sm:text-xl pb-2">Valor do Contrato</label>
+          <input type="number" v-model="contractValue" required class="w-[60vw] p-2 pb-1 border border-gray-300 rounded sm:w-[50vw]" />
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700">Data de Início</label>
-          <input type="date" v-model="startDate" required class="input" />
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center text-sm sm:text-xl pb-2">Data de Início</label>
+          <input type="date" v-model="startDate" required class=" text-sm w-[60vw] p-2 pb-1 border border-gray-300 rounded sm:w-[50vw] sm:text-lg" />
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700">Data de Término</label>
-          <input type="date" v-model="endDate" required class="input" />
+        <div class="mb-4 flex flex-col items-center">
+          <label class="block text-gray-700 text-center text-sm sm:text-xl pb-2">Data de Término</label>
+          <input type="date" v-model="endDate" required class="text-sm w-[60vw] p-2 pb-1 border border-gray-300 rounded sm:w-[50vw] sm:text-lg" />
         </div>
-        <button type="submit" class="btn">{{ isEditing ? 'Atualizar Contrato' : 'Cadastrar Contrato' }}</button>
+        <button type="submit" class="bg-green-500 text-white text-sm p-2 mb-1 px-4 mt-2 border-none rounded cursor-pointer mr-1.5 hover:bg-[#45a049] md:text-xl">{{ isEditing ? 'Atualizar Contrato' : 'Cadastrar Contrato' }}</button>
       </form>
-  
-      <h2 class="text-xl font-bold mt-8">Contratos Cadastrados</h2>
-      <table class="min-w-full bg-white border border-gray-300">
-        <thead>
-          <tr>
-            <th class="border px-4 py-2">Cliente</th>
-            <th class="border px-4 py-2">Área de Atuação</th>
-            <th class="border px-4 py-2">Valor</th>
-            <th class="border px-4 py-2">Data de Início</th>
-            <th class="border px-4 py-2">Data de Término</th>
-            <th class="border px-4 py-2">Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="contract in contracts" :key="contract.id">
-            <td class="border px-4 py-2">{{ contract.client }}</td>
-            <td class="border px-4 py-2">{{ contract.service }}</td>
-            <td class="border px-4 py-2">{{ contract.value }}</td>
-            <td class="border px-4 py-2">{{ contract.startDate }}</td>
-            <td class="border px-4 py-2">{{ contract.endDate }}</td>
-            <td class="border px-4 py-2">
-              <button @click="editContract(contract)" class="btn">Editar</button>
-              <button @click="deleteContract(contract.id)" class="btn">Remover</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="flex items-center justify-center flex-col">
+        <h2 class="text-lg font-bold mt-2 sm:mt-6 text-center pb-4 sm:text-xl md:text-xl">Contratos Cadastrados</h2>
+        <table class="bg-white border border-gray-300">
+          <thead>
+            <tr class="flex flex-col sm:flex-row">
+              <th class="border px-4 py-2 text-base sm:text-base md:text-[1.75vw] lg:text-lg">Cliente</th>
+              <th class="border px-4 py-2 text-base sm:text-base md:text-[1.75vw] lg:text-lg">Área de Atuação</th>
+              <th class="border px-4 py-2 text-base sm:text-base md:text-[1.75vw] lg:text-lg">Valor</th>
+              <th class="border px-4 py-2 text-base sm:text-base md:text-[1.75vw] lg:text-lg">Data de Início</th>
+              <th class="border px-4 py-2 text-base sm:text-base md:text-[1.75vw] lg:text-lg">Data de Término</th>
+              <th class="border px-4 py-2 text-base sm:text-base md:text-[1.75vw] lg:text-lg">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="contract in contracts" :key="contract.id">
+              <td class="border px-4 py-2">{{ contract.client }}</td>
+              <td class="border px-4 py-2">{{ contract.service }}</td>
+              <td class="border px-4 py-2">{{ contract.value }}</td>
+              <td class="border px-4 py-2">{{ contract.startDate }}</td>
+              <td class="border px-4 py-2">{{ contract.endDate }}</td>
+              <td class="border px-4 py-2">
+                <button @click="editContract(contract)" class="btn">Editar</button>
+                <button @click="deleteContract(contract.id)" class="btn">Remover</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
